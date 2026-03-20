@@ -1,0 +1,51 @@
+.btn {
+  font-family: 'FranklinGothicDemi', arial, sans-serif;
+  font-size: 1.25vw;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  text-decoration: none;
+  align-items: center;
+  margin-top: 5vh;
+  background-position: 20px center;
+  padding: 0.25vw 0.5vw;
+  text-transform: uppercase;
+
+  @include larger-than(desktop) {
+    background-position: 50px center;
+    justify-content: flex-end;
+  }
+
+}
+
+.btn-blue {
+  color: $hexWhite;
+  background-color: transparent;
+  border: 1px solid $hexWhite;
+
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+
+  &:hover {
+    color: $hexBlue;
+    background-color: $hexWhite;
+    border: 1px solid $hexWhite;
+  }
+}
+
+.btn-white {
+  color: $hexBlue;
+  background-color: $hexWhite;
+  border: 1px solid $hexWhite;
+
+  &:hover {
+    color: $hexWhite;
+    background-color: transparent;
+    border: 1px solid $hexWhite;
+  }
+}
+
+#nextBtn, #restartBtn, #submitBtn {
+  font-family: 'FranklinGothicDemi', arial, sans-serif;
+}

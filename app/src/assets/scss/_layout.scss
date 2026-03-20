@@ -1,0 +1,137 @@
+@use "sass:math";
+
+$font:'FranklinGothic', arial, sans-serif;
+$fontAnswer:'FranklinGothicDemi', arial, sans-serif;
+$fontLight: 'FranklinGothicLight', arial, sans-serif;
+
+$hexBlue: #2573BA;
+/*$hexLightBlue: #3AA3DD;
+$innerBorder: rgba(29,163,221,0.2); //#CFE4ED;
+$outerBorder: rgba(29,163,221,0.1); //#E5ECF0;
+$innerBorder2: rgba(29,163,221,0.4); //#81C8E6;
+$outerBorder2: rgba(29,163,221,0.2); //#C5E1ED;
+$hexLighterBlue: #DAE5EE;*/
+/*$hoverInnerBorder: rgba(214,223,230,0.4); //#D6DFE6;
+$hoverOuterBorder: rgba(227,232,236,0.2); //#E3E8EC;
+$hoverInnerBorder2: rgba(114,159,186,0.4); //#729FBA;
+$hoverOuterBorder2: rgba(192,209,220,0.2); //#C0D1DC;*/
+
+$hoverInnerBorder: rgba(0,85,137,0.4);
+$hoverOuterBorder: rgba(0,85,137,0.2);
+
+$disabledBackGround: rgba(58,163,221,0.5);
+$disabledInnerBorder: rgba(29,163,221,0.2);
+$disabledOuterBorder: rgba(29,163,221,0.1);
+
+$sliderButtonBorder: rgb(88,169,221);
+
+$hexOrange: #EF4131;
+$hexDarkGrey: #3C3C3B;
+$hexDarkerGrey: #3F4444;
+$hexLightGrey: #666666;
+$hexLighterGrey: #f2f2f2;
+
+$hexBlack: #000000;
+$hexWhite: #FFFFFF;
+$hexMorningMist: #E2E2F2;
+$hexAqua: #00ca9f;
+$hexBlackBerry: #2A034C;
+$hexAzure: #4168E5;
+$hexPicton: #41BCE5;
+$hexRed: #FF0000;
+
+$hexGreen: #00CA9F;
+$hexAnswerGreen: #6DAD46;
+
+$maxContainerWidth: 100vw;
+$intGutter: 30px;
+$intHalfGutter: 15px;
+
+$layoutSizes: (
+	mobile: 375,
+	tablet: 1180,
+	desktop: 1920,
+);
+
+// Responsive breakpoints
+$breakpoints: (
+	mobile: 0px,
+	tablet: 1179px,
+	desktop: 1919px,
+);
+
+@mixin landscape {
+	@media screen and (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin portrait {
+	@media screen and (orientation: portrait) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	$mobileBreakpoint: map-get($breakpoints, tablet);
+	@media screen and (max-width: ($mobileBreakpoint )) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	$tabletBreakpoint: map-get($breakpoints, tablet);
+	$desktopBreakpoint: map-get($breakpoints, desktop);
+	@media screen and (min-width: $tabletBreakpoint) and (max-width: ($desktopBreakpoint )) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	$desktopBreakpoint: map-get($breakpoints, desktop);
+	@media screen and (min-width: ($desktopBreakpoint)) {
+		@content;
+	}
+}
+
+@function rem($px, $layout) {
+	$layoutSize: map-get($layoutSizes, $layout);
+	@return (math.div(100, $layoutSize) * $px) * 1vw;
+}
+
+@mixin r($attr, $mobileSize, $tabletSize, $desktopSize, $isImportant: false) {
+	$important: if($isImportant, "!important", "");
+
+	@include mobile {
+		#{$attr}: rem($mobileSize, mobile) #{$important};
+	}
+	@include tablet {
+		#{$attr}: rem($tabletSize, tablet) #{$important};
+	}
+	@include desktop {
+		#{$attr}: rem($desktopSize, desktop) #{$important};
+	}
+}
+
+// Media queries
+@mixin smaller-than($point-name) {
+	$width: map-get($breakpoints, $point-name);
+	@media (max-width: calc($width)) {
+		@content;
+	}
+}
+
+@mixin larger-than($point-name) {
+	$width: map-get($breakpoints, $point-name);
+	@media (min-width: $width) {
+		@content;
+	}
+}
+
+// Vertical media queries
+@mixin shorter-than($point-name) {
+	$height: map-get($breakpoints, $point-name);
+	@media (max-height: calc($height + -1)) {
+		@content;
+	}
+}

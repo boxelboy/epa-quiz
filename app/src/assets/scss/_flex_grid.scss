@@ -1,0 +1,283 @@
+.container {
+	width: 100%;
+	max-width: $maxContainerWidth;
+	/*margin: 0 auto;
+	@include r(padding-left,15,15,15);
+	@include r(padding-right,15,15,15);*/
+	@include flexbox();
+	/*@include flex-wrap(wrap);
+	@include justify-content(space-between);*/
+	@include align-content(flex-start);
+
+	@include tablet {
+		/*@include r(padding-left,45,45,45);
+		@include r(padding-right,45,45,45);*/
+	}
+	@include desktop {
+		/*@include r(padding-left,45,45,45);
+		@include r(padding-right,45,45,45);*/
+	}
+
+	@media screen and (min-width: 1920px) {
+		/*@include r(max-width, 1920, 1920, 1920);*/
+	}
+
+	&.textAlignCenter {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		p,
+		li,
+		a:not(.button) {
+			text-align: center;
+		}
+	}
+}
+
+.col-100,
+.col-90,
+.col-80,
+.col-70,
+.col-60,
+.col-50,
+.col-40,
+.col-33,
+.col-30,
+.col-25,
+.col-10{
+	&.grid {
+		@include flexbox();
+		@include flex-wrap(wrap);
+		@include justify-content(space-between);
+		@include align-content(flex-start);
+	}
+}
+
+.col-100 {
+	width: 100%;
+}
+
+.col-90 {
+	width: 100%;
+	@include tablet {
+		width: calc(90% - $intHalfGutter);
+	}
+	@include desktop {
+		width: calc(90% - $intGutter);
+	}
+	&.no-gutter{
+		@include tablet {
+			width: calc(90%);
+		}
+		@include desktop {
+			width: calc(90%);
+		}
+	}
+}
+
+.col-80 {
+	width: 100%;
+	@include tablet {
+		width: calc(80% - $intHalfGutter);
+	}
+	@include desktop {
+		width: calc(80% - $intGutter);
+	}
+}
+
+.col-70 {
+	width: 100%;
+	@include tablet {
+		width: calc(70% - $intHalfGutter);
+	}
+	@include desktop {
+		width: calc(70% - $intGutter);
+	}
+}
+
+.col-60 {
+	width: 100%;
+	@include tablet {
+		width: calc(60% - $intHalfGutter);
+	}
+	@include desktop {
+		width: calc(60% - $intGutter);
+	}
+}
+
+.col-50 {
+	width: 100%;
+	@include tablet {
+		width: calc(50% - $intHalfGutter);
+	}
+	@include desktop {
+		width: calc(50% - $intGutter);
+	}
+	&.no-gutter{
+		@include tablet {
+			width: 50%;
+		}
+		@include desktop {
+			width: 50%;
+		}
+	}
+}
+
+.col-40 {
+	width: 100%;
+	@include tablet {
+		width: calc(40% - $intGutter);
+	}
+	@include desktop {
+		width: calc(40% - $intGutter);
+	}
+}
+
+.col-33 {
+	width: 100%;
+	@include tablet {
+		width: calc(33.333% - $intGutter);
+	}
+	@include desktop {
+		width: calc(33.333% - $intGutter);
+	}
+	&.half-gutter{
+		@include tablet {
+			width: calc(33.333% - $intHalfGutter);
+		}
+		@include desktop {
+			width: calc(33.333% - $intHalfGutter);
+		}
+	}
+	&.no-gutter{
+		@include tablet {
+			width:33.333%;
+		}
+		@include desktop {
+			width:33.333%;
+		}
+	}
+}
+
+.col-30 {
+	width: 100%;
+	@include tablet {
+		width: calc(30% - $intHalfGutter);
+	}
+	@include desktop {
+		width: calc(30% - $intGutter);
+	}
+}
+
+.col-25 {
+	width: 100%;
+	@include tablet {
+		width: calc(25% - $intHalfGutter);
+	}
+	@include desktop {
+		width: calc(25% - $intGutter);
+		&.half-gutter {
+			width: calc(25% - $intHalfGutter);
+		}
+	}
+}
+
+.col-20 {
+	width: 100%;
+	@include tablet {
+		width: calc(20% - $intHalfGutter);
+	}
+	@include desktop {
+		width: calc(20% - $intGutter);
+	}
+}
+
+.col-10 {
+	width: 100%;
+	@include tablet {
+		width: calc(10% - $intHalfGutter);
+	}
+	@include desktop {
+		width: calc(10% - $intGutter);
+	}
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+
+	.content {
+		display: flex;
+		flex-direction: row;
+		flex: 1;
+		@include r(padding-top,130,130,77);
+
+		&__content {
+			@include r(width, 700,685,1220);
+
+			&__shield {
+				@include r(padding, 30,30,30);
+				@include r(padding-right, 62,62,87);
+				@include r(padding-left, 62,30,50);
+				@include r(width, 566,566,890);
+				@include r(height, 544,544,870);
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: 0 auto;
+
+				button {
+					@include r(margin-top, 30,30,50);
+					@include r(width, 158,158,240);
+					@include r(height, 49,49,83);
+					justify-content: flex-end;
+					display: none;
+				}
+			}
+
+			&__heading {
+				@include r(font-size, 30,30,30);
+				@include r(padding-bottom,25,25,25);
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+				align-items: flex-start;
+				justify-content: space-between;
+				border-bottom: 3px solid $hexOrange;
+
+				h1 {
+					@include r(width,385,385,546);
+					width: 89%;
+				}
+			}
+
+			h1 {
+				@include fontSemiBold($font);
+				@include r(font-size,30,30,45);
+				margin: 0;
+				color: $hexOrange;
+			}
+
+			&__icon {
+				@include r(width,58,58,94);
+				@include r(height,58,58,94);
+				display: flex;
+				justify-content: center;
+				border-radius: 50%;
+				background-color: $hexOrange;
+
+				img {
+					width: 2.8vw;
+					height: auto;
+				}
+			}
+		}
+
+
+	}
+}

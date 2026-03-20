@@ -1,0 +1,27 @@
+{
+  "Hospitalisations for HF (first)": {
+    "Overall": 7.7,
+    "Age < 65": 7.5,
+    "Age ≥ 65": 7.7
+  },
+  "Hospitalisations for HF (all)": {
+    "Overall": 11.4,
+    "Age < 65": 11.2,
+    "Age ≥ 65": 11.4
+  },
+  "Urgent HF Visit": {
+    "Overall": 1.1,
+    "Age < 65": 1.2,
+    "Age ≥ 65": 1.1
+  },
+  "Cardiovascular Deaths": {
+    "Overall": 5.2,
+    "Age < 65": 5.2,
+    "Age ≥ 65": 5.2
+  },
+  "All-Cause Deaths": {
+    "Overall": 8.3,
+    "Age < 65": 6.9,
+    "Age ≥ 65": 8.8
+  }
+}

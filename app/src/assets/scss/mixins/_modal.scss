@@ -1,0 +1,165 @@
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  background-color: rgba(0,85,137,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $hexLightGrey;
+  @include fontLight($font);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  &__close {
+    @include fontLight($font);
+    @include r(width,43,43,70);
+    @include r(height,43,43,70);
+    @include r(font-size,22,22,50);
+    position: absolute;
+    top: 4vh;
+    right: 4vh;
+    background-color: $hexOrange;
+    color: $hexWhite;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__content {
+    @include r(width,990,990,1396);
+    @include r(height,501,501,707);
+    @include r(padding,20,20,20);
+    @include r(padding-right,50,50,0);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 6vh !important;
+
+    &__content {
+      width: 50%;
+      padding: 0 4vw;
+
+      &.border {
+        border-right: 1px solid #666666;
+        border-top: unset;
+        border-bottom: unset;
+        margin-top: unset;
+        padding-top: unset;
+      }
+
+    }
+
+    &__header {
+      @include fontSemiBold($font);
+      @include r(font-size, 22,22,34);
+      @include r(padding-bottom,20,20,20);
+      border-bottom: 3px solid $hexOrange;
+      color: $hexOrange;
+      text-transform: uppercase;
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      img {
+        display: block;
+        @include r(width, 22,30,43);
+        @include r(height, 22,39,55);
+        margin: 2vh 2vh 0 0;
+      }
+
+      > div {
+        @include r(font-size,12,12,18);
+      }
+    }
+
+    &__dash {
+      @include r(font-size, 20,20,20);
+      @include r(left, 255,255,365);
+      @include r(top, 315,315,444);
+      position: absolute;
+      color: $hexWhite;
+    }
+
+    &__vertdash {
+      @include r(font-size, 2202,20,20);
+      @include r(right, 63,63,100);
+      @include r(bottom, 92,92,130);
+      position: absolute;
+      color: $hexWhite;
+    }
+
+    &__tips1 {
+      @include r(width, 298,298,298);
+      @include r(height,122,122,122);
+      @include r(font-size,25,25,25);
+      @include r(padding,25,25,25);
+      @include r(left, 380,380,500);
+      @include r(top, 22,330,455);
+      position: absolute;
+    }
+
+    &__tips2 {
+      @include r(width, 312,312,312);
+      @include r(height,157,157,157);
+      @include r(font-size,25,25,25);
+      @include r(padding,25,25,25);
+      @include r(bottom, 282,282,298);
+      position: absolute;
+      right: 5vw;
+    }
+
+    &__tips_icon {
+      @include r(width,36,36,36);
+      @include r(height,36,36,36);
+      display: inline-flex;
+      justify-content: center;
+      background-color: $hexLightGrey;
+      color: $hexWhite;
+      border-radius: 50%;
+      @include fontLight($font);
+    }
+
+    &__timeout {
+      @include r(width,972,972,1458);
+      @include r(height,554,554,831);
+      @include r(padding-top,200,200,270);
+      @include r(padding-left,500,500,700);
+      @include r(padding-right,75,75,75);
+      margin-top: -200px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__continue {
+      @include r(width,972,972,972);
+      @include r(height,550,550,550);
+      @include r(padding-top,200,200,200);
+      @include r(padding-left,500,500,500);
+      @include r(padding-right,150,150,150);
+      margin-top: -200px;
+      display: flex;
+      flex-direction: column;
+    }
+
+  }
+}
+
+#modal2, #modal3 {
+  .modal__content {
+    .pdf-vue3-main {
+      width: 100vw;
+      @include r(margin-left,0,0,20);
+      @include r(margin-right,0,0,70);
+    }
+  }
+}
